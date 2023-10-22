@@ -5,9 +5,9 @@ import LogoImage1 from '../assets/gowell_logo1.png';
 const SplashScreen = ({ navigation }) => {
     useEffect(() => {
       const splashTimer = setTimeout(() => {
-        navigation.navigate('Login');
-      }, 5000);
-  7
+        navigation.navigate('LogInSignUp');
+      }, 3000);
+  
       return () => clearTimeout(splashTimer);
     }, [navigation]);
   
@@ -27,7 +27,7 @@ const SplashScreen = ({ navigation }) => {
       alignItems: 'center',
     },
     logo1: {
-      width: 500, // Adjust the width and height to fit your logo size
+      width: 500, 
       height: 500,
     },
 });
