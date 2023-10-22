@@ -1,7 +1,7 @@
 // SignUpPage.js
 import React, {useState} from 'react';
 import { View, Text, Image, TextInput, TouchableOpacity, 
-  TouchableWithoutFeedback, StyleSheet, Modal, TouchableHighlight } from 'react-native';
+  StyleSheet, Modal, TouchableHighlight } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 import user1 from '../assets/user1.png';
 
@@ -77,12 +77,12 @@ const SignUpPage = ({navigation}) => {
           </View>
         </Modal>
 
-        <TouchableWithoutFeedback onPress={goToLogIn}>
+        <TouchableOpacity onPress={goToLogIn}>
           <View style={styles.loginLinkContainer}>
             <Text style={styles.loginLinkText}>Already have an account? </Text>
             <Text style={styles.loginLink}>Log in</Text>
           </View>
-        </TouchableWithoutFeedback>
+        </TouchableOpacity>
 
       </View>
     </View>
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     flex: 1,
     position: 'absolute', 
     top: '15%', 
-    bottom: '10%',
+    bottom: '9%',
     left: '7%',
     right: '7%',
     backgroundColor: '#F5F5F5', 
@@ -126,8 +126,8 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 40,
     borderBottomLeftRadius: 40,
     borderBottomRightRadius: 40,
-    paddingHorizontal: 40,
-    paddingTop: 30,
+    paddingHorizontal: 30,
+    paddingTop: 5,
   },
   title: {
     fontSize: 24,
@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
   },
   signUpButton: {
     backgroundColor: '#0B3954',
-    paddingVertical: 12,
+    paddingVertical: 10,
     borderRadius: 40,
     marginTop: 20,
     alignItems: 'center',
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     borderWidth: 0,
     marginLeft: 0,
-    paddingHorizontal: 0,
+    paddingHorizontal: 10,
   },
   checkboxText: {
     fontSize: 12,
