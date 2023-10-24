@@ -1,10 +1,10 @@
-
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 import { Image } from 'react-native';
 
-import Home from '../navbuttons/HomeScreen'; 
-import Tracker from '../navbuttons/TrackerScreen';
+import Home from '../navbuttons/HomeScreen';
+import TrackerScreen from '../navbuttons/TrackerScreen';
 import GoWell from '../navbuttons/GoWellScreen';
 import Notifications from '../navbuttons/NotificationsScreen';
 import Profile from '../navbuttons/ProfileScreen';
@@ -15,7 +15,23 @@ import GowellIcon from '../assets/GowellIcon.png';
 import NotificationIcon from '../assets/NotificationIcon.png';
 import ProfileIcon from '../assets/ProfileIcon.png';
 
+import SleepTrackerScreen from '../trackers/SleepTrackerScreen';
+import WaterReminderScreen from '../trackers/WaterReminder';
+import StepCounterScreen from '../trackers/StepCounter';
+import HeartRateScreen from '../trackers/HeartRate';
+
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
+
+const TrackerStack = () => (
+  <Stack.Navigator>
+    <Stack.Screen name="TrackerScreen" component={TrackerScreen} options={{ headerShown: false }} />
+    <Stack.Screen name="SleepTrackerScreen" component={SleepTrackerScreen} options={{ headerShown: false }} />
+    <Stack.Screen name="WaterReminderScreen" component={WaterReminderScreen} options={{ headerShown: false }} />
+    <Stack.Screen name="StepCounterScreen" component={StepCounterScreen} options={{ headerShown: false }} />
+    <Stack.Screen name="HeartRateScreen" component={HeartRateScreen} options={{ headerShown: false }} />
+  </Stack.Navigator>
+);
 
 const LandingPage = () => {
   return (
@@ -23,10 +39,10 @@ const LandingPage = () => {
       screenOptions={{
         tabBarStyle: {
           height: 50,
-          borderTopLeftRadius: 25, 
-          borderTopRightRadius: 25, 
+          borderTopLeftRadius: 25,
+          borderTopRightRadius: 25,
           elevation: 50,
-        }, 
+        },
       }}
     >
       <Tab.Screen
@@ -41,7 +57,7 @@ const LandingPage = () => {
       />
       <Tab.Screen
         name="Tracker"
-        component={Tracker}
+        component={TrackerStack}
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
@@ -55,10 +71,13 @@ const LandingPage = () => {
         options={{
           headerShown: false,
           tabBarIcon: ({ size, focused }) => (
-            <Image source={GowellIcon} style={{
-              width: focused ? size + 20 : size,
-              height: focused ? size + 20 : size,
-            }} />
+            <Image
+              source={GowellIcon}
+              style={{
+                width: focused ? size + 20 : size,
+                height: focused ? size + 20 : size,
+              }}
+            />
           ),
         }}
       />
